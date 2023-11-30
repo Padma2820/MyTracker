@@ -170,10 +170,10 @@ const TransactionsTable = ({
           <Radio.Button value="amount">Sort by Amount</Radio.Button>
         </Radio.Group>
         <div className="ix-button">
-          <button className="btn  btn-purple" onClick={exportCSV}>
+          {/* <button className="btn  btn-purple" onClick={exportCSV}>
             Export CSV
-          </button>
-          <label htmlFor="file-csv" className="btn">
+          </button> */}
+          {/* <label htmlFor="file-csv" className="btn">
             Import CSV
           </label>
           <input
@@ -183,7 +183,7 @@ const TransactionsTable = ({
             required
             onChange={importCSV}
             style={{ display: "none" }}
-          />
+          /> */}
         </div>
       </div>
       <div className="table-container">

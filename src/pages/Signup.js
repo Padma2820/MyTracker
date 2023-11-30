@@ -6,6 +6,7 @@ const Signup = () => {
   return (
     <div className='wrapper'>
       <SignupSignin />
+      
     </div>
   )
 }

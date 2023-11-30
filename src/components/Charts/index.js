@@ -25,6 +25,7 @@ const ChartComponent = ({ transactions }) => {
         data: transactions.map((transaction) => transaction.amount), // Use amounts for Y-axis
       },
     ],
+
   };
 
   return (
