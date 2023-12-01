@@ -1,5 +1,7 @@
 .btn {
-    background-color: var(--primary-purple);
+    /* background-color: var(--primary-purple); */
+
+    background-color: rgb(6, 171, 208);
     text-align: center;
     color: var(--white);
     font-size: 1rem;

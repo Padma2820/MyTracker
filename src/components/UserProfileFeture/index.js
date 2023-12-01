@@ -6,7 +6,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { signOut } from "firebase/auth";
-import ColorSwitcher from "../ColorSwitcher";
+// import ColorSwitcher from "../ColorSwitcher";
 
 const UserProfile = () => {
   const [user, loading] = useAuthState(auth);
@@ -70,7 +70,7 @@ const UserProfile = () => {
           </>
         )}
       </div>
-      <ColorSwitcher handleColorChange={handleColorChange} />
+      {/* <ColorSwitcher handleColorChange={handleColorChange} /> */}
     </div>
   );
 };

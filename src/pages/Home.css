@@ -1,0 +1,64 @@
+/* FrontPage.css */
+/* html,body{
+
+  background-image: url('../images/background.webp');
+  opacity: 0.4;
+} */
+
+/* body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+} */
+
+
+.front-page {
+    text-align: center;
+   
+   
+  }
+
+  /* .front-page{
+background-image: url('../images/background.webp');
+opacity: 0.4;
+z-index: -1;
+
+  } */
+  
+  .front-page h1 {
+    
+    color: black;
+    padding: 20px;
+    margin: 100px auto 0px auto;
+    font-size: 3rem;
+  }
+  
+  .front-page main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    color:black;
+    box-shadow: 5px 10px 18px #888888;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ 
+  }
+  
+  .front-page section {
+    margin-bottom: 20px;
+  }
+  
+  .front-page button {
+    background-color: rgb(2, 195, 2);
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .front-page button:hover {
+    background-color: #0056b3;
+  }
+  
+  

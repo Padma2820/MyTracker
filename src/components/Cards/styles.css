@@ -7,7 +7,7 @@
 
 .current-balance {
     color: var(--white);
-    background-color: var(--primary-purple);
+    background-color: burlywood;
     /* background-image: linear-gradient(315deg, #6842EF 0%, #8161f4 74%); */
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset !important;
 }
@@ -50,4 +50,55 @@
 .reset-balance-btn:hover {
     letter-spacing: 1px;
     color: var(--white) !important;
+}
+
+.mysavingcard {
+    box-shadow: var(--shadow-color);
+    min-width: 19rem;
+    font-family: 'Montserrat', sans-serif;
+    background-color: burlywood;
+    flex: 0 1 19rem;
+    align-self: center; /* Align the Savings card in the center */
+    margin: 0 auto;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset !important;/* Add margin to center the card horizontally */
+}
+
+.savingtitle{
+
+    font-size: 1.4rem !important;
+    text-align: left;
+    color: white;
+}
+
+.save{
+
+    font-size: 1rem;
+    font-weight: 500;
+    margin-block: 1.5rem;
+    color: white;
+    font-size: 1.9rem !important;
+    font-weight: 600 !important;
+    text-shadow: var(--shadow-color) !important;
+}
+
+.mysavingcard {
+    box-shadow: var(--shadow-color);
+    min-width: 19rem;
+    font-family: 'Montserrat', sans-serif;
+    background-color: burlywood;
+    flex: 0 1 19rem;
+    align-self: center;
+    margin: 0 auto;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset !important;
+}
+
+.mybudget {
+    box-shadow: var(--shadow-color);
+    min-width: 19rem;
+    font-family: 'Montserrat', sans-serif;
+   
+    flex: 0 1 19rem;
+    align-self: center;
+    margin: 0 auto;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset !important;
 }
