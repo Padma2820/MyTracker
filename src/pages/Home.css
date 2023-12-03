@@ -30,7 +30,8 @@ z-index: -1;
     
     color: black;
     padding: 20px;
-    margin: 100px auto 0px auto;
+    /* margin: 100px auto 0px auto; */
+    margin: 100px auto 0px 130px;
     font-size: 3rem;
   }
   
@@ -61,4 +62,9 @@ z-index: -1;
     background-color: #0056b3;
   }
   
+.main-heading{
+
+text-align: center;
+
+  }
   

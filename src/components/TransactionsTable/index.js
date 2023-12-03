@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import "./styles.css";
+// import "./styles.css";
+
+import '../TransactionsTable/styles.css';
 import { Radio, Select, Table } from "antd";
 import { parse, unparse } from "papaparse";
 import { toast } from "react-toastify";
@@ -23,28 +25,65 @@ const TransactionsTable = ({
   const [user] = useAuthState(auth);
 
   //   define a columns for our table
-  const columns = [
-    {
-      title: "Name",
-      dataIndex: "name",
-      key: "name",
-    },
-    {
-      title: "Amount",
-      dataIndex: "amount",
-      key: "amount",
-    },
-    {
-      title: "Type",
-      dataIndex: "type",
-      key: "type",
-    },
-    {
-      title: "Date",
-      dataIndex: "date",
-      key: "date",
-    },
-  ];
+  // const columns = [
+  //   {
+  //     title: "Name",
+  //     dataIndex: "name",
+  //     key: "name",
+  //   },
+  //   {
+  //     title: "Amount",
+  //     dataIndex: "amount",
+  //     key: "amount",
+  //   },
+  //   {
+  //     title: "Type",
+  //     dataIndex: "type",
+  //     key: "type",
+  //   },
+  //   {
+  //     title: "Date",
+  //     dataIndex: "date",
+  //     key: "date",
+  //   },
+  // ];
+
+
+// Update the columns definition
+const columns = [
+  {
+    title: "Name",
+    dataIndex: "name",
+    key: "name",
+  },
+  {
+    title: "Amount",
+    dataIndex: "amount",
+    key: "amount",
+  },
+  {
+    title: "Type",
+    dataIndex: "type",
+    key: "type",
+  },
+  {
+    title: "Date",
+    dataIndex: "date",
+    key: "date",
+  },
+  {
+    title: "Actions",
+    key: "actions",
+    render: (text, record) => (
+      <div>
+        <button className="edit-button" onClick={() => handleEdit(record)}>Edit</button>
+        <button className="edit-button" onClick={() => handleDeleteSave(record)}>Delete</button>
+      </div>
+    ),
+  },
+];
+
+
 
   let filterTransactionsArray = transactions.filter(
     (item) =>
@@ -62,54 +101,54 @@ const TransactionsTable = ({
     }
   });
 
-  // this function for downloading our csv file or exporting a csv file
-  const exportCSV = () => {
-    // Specifying fields and data explicitly
-    var csv = unparse({
-      fields: ["name", "type", "tag", "date", "amount"],
-      data: transactions,
-    });
-    var data = new Blob([csv], { type: "text/csv:charsetutf-8;" });
-    const csvURL = window.URL.createObjectURL(data);
-    const tempLink = document.createElement("a");
-    tempLink.href = csvURL;
-    tempLink.download = "transactions.csv";
-    document.body.appendChild(tempLink);
-    tempLink.click();
-    document.body.removeChild(tempLink);
-  };
+  // // this function for downloading our csv file or exporting a csv file
+  // const exportCSV = () => {
+  //   // Specifying fields and data explicitly
+  //   var csv = unparse({
+  //     fields: ["name", "type", "tag", "date", "amount"],
+  //     data: transactions,
+  //   });
+  //   var data = new Blob([csv], { type: "text/csv:charsetutf-8;" });
+  //   const csvURL = window.URL.createObjectURL(data);
+  //   const tempLink = document.createElement("a");
+  //   tempLink.href = csvURL;
+  //   tempLink.download = "transactions.csv";
+  //   document.body.appendChild(tempLink);
+  //   tempLink.click();
+  //   document.body.removeChild(tempLink);
+  // };
 
   // function for import a csv file
-  const importCSV = (event) => {
-    event.preventDefault();
-    try {
-      parse(event.target.files[0], {
-        header: true,
-        complete: async function (results) {
-          // now results.data is an array of objects representing your CSV rows
-          for (const transaction of results.data) {
-            // Skip this transaction if the 'amount' is not a valid number
-            if (isNaN(transaction.amount)) {
-              continue;
-            }
+  // const importCSV = (event) => {
+  //   event.preventDefault();
+  //   try {
+  //     parse(event.target.files[0], {
+  //       header: true,
+  //       complete: async function (results) {
+  //         // now results.data is an array of objects representing your CSV rows
+  //         for (const transaction of results.data) {
+  //           // Skip this transaction if the 'amount' is not a valid number
+  //           if (isNaN(transaction.amount)) {
+  //             continue;
+  //           }
 
-            const newTransaction = {
-              ...transaction,
-              // Convert the 'amount' field to a number using parseFloat instead of parseInt
-              amount: parseFloat(transaction.amount),
-            };
-            // Write each transaction to Firebase (addDoc), you can use the addTransaction function here
-            await addTransaction(newTransaction, true);
-          }
-          toast.success("All transactions added");
-          fetchTransactions();
-          event.target.value = null; // Reset the input field
-        },
-      });
-    } catch (err) {
-      toast.error(err.message);
-    }
-  };
+  //           const newTransaction = {
+  //             ...transaction,
+  //             // Convert the 'amount' field to a number using parseFloat instead of parseInt
+  //             amount: parseFloat(transaction.amount),
+  //           };
+  //           // Write each transaction to Firebase (addDoc), you can use the addTransaction function here
+  //           await addTransaction(newTransaction, true);
+  //         }
+  //         toast.success("All transactions added");
+  //         fetchTransactions();
+  //         event.target.value = null; // Reset the input field
+  //       },
+  //     });
+  //   } catch (err) {
+  //     toast.error(err.message);
+  //   }
+  // };
 
   const handleEdit = (transaction) => {
     setSelectedTransaction(transaction);
@@ -191,9 +230,9 @@ const TransactionsTable = ({
           dataSource={sortedTransactions}
           columns={columns}
           className="table"
-          onRow={(record) => ({
-            onClick: () => handleEdit(record), // Handle row click event
-          })}
+          // onRow={(record) => ({
+          //   onClick: () => handleEdit(record), // Handle row click event
+          // })}
         />
         {showEditModal && selectedTransaction && (
           <EditEditDeleteModal

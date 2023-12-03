@@ -4,12 +4,13 @@ import InputComponent from "../common/Input";
 import Button from "../common/Button";
 import { FcGoogle } from "react-icons/fc";
 import {
-  GoogleAuthProvider,
+  
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signInWithPopup,
 } from "firebase/auth";
 import { auth, db, provider } from "../../firebase";
+
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -101,7 +102,7 @@ const SignupSignin = () => {
         await setDoc(doc(db, "users", user.uid), {
           displayName: user.displayName ? user.displayName : user.email, // Set the displayName property using the provided name
           email: user.email, // Use user.email instead of just 'email'
-          photoURL: user.photoURL ? user.photoURL : "",
+          // photoURL: user.photoURL ? user.photoURL : "",
           createdAt: new Date(),
         });
 
@@ -113,31 +114,31 @@ const SignupSignin = () => {
   };
 
   // google login or sign up function
-  const googleAuth = () => {
-    setLoading(true);
-    try {
-      signInWithPopup(auth, provider)
-        .then((result) => {
-          // This gives you a Google Access Token. you can use it to access the Google API.
-          const credential = GoogleAuthProvider.credentialFromResult(result);
-          const token = credential.accessToken;
-          // The signed-in user info.
-          const user = result.user;
-          console.log(user);
-          createDoc(user);
-          navigate("/dashboard");
-          toast.success("Login successfully");
-          // IdP data available using getAdditionlUserInfo(result)
-          setLoading(false);
-        })
-        .catch((error) => {
-          toast.error(error.message);
-          setLoading(false);
-        });
-    } catch (error) {
-      toast.error(error.message);
-    }
-  };
+  // const googleAuth = () => {
+  //   setLoading(true);
+  //   try {
+  //     signInWithPopup(auth, provider)
+  //       .then((result) => {
+  //         // This gives you a Google Access Token. you can use it to access the Google API.
+  //         const credential = GoogleAuthProvider.credentialFromResult(result);
+  //         const token = credential.accessToken;
+  //         // The signed-in user info.
+  //         const user = result.user;
+  //         console.log(user);
+  //         createDoc(user);
+  //         navigate("/dashboard");
+  //         toast.success("Login successfully");
+  //         // IdP data available using getAdditionlUserInfo(result)
+  //         setLoading(false);
+  //       })
+  //       .catch((error) => {
+  //         toast.error(error.message);
+  //         setLoading(false);
+  //       });
+  //   } catch (error) {
+  //     toast.error(error.message);
+  //   }
+  // };
 
   return (
     <>
@@ -145,7 +146,7 @@ const SignupSignin = () => {
         <div className="signup-wrapper">
           <h2 className="title">
             Login up on{" "}
-            <span style={{ color: "var(--primary-purple)" }}>Fanancley</span>
+            <span style={{ color: "var(--primary-purple)" }}>Finance</span>
           </h2>
           <InputComponent
             type={"email"}
@@ -166,12 +167,12 @@ const SignupSignin = () => {
             purple={true}
           />
           <p className="or-name">or</p>
-          <Button
+          {/* <Button
             text={loading ? "Loading..." : "Login with Google"}
             onClick={googleAuth}
             purple={false}
             icon={<FcGoogle className="FcGoogle" />}
-          ></Button>
+          ></Button> */}
           <p className="have-an-account">
             Don't have an account?{" "}
             <span
@@ -186,7 +187,7 @@ const SignupSignin = () => {
         <div className="signup-wrapper">
           <h2 className="title">
             Sign Up on{" "}
-            <span style={{ color: "var(--primary-purple)" }}>Financely</span>
+            <span style={{ color: "var(--primary-purple)" }}>Finance</span>
           </h2>
           <InputComponent
             type={"text"}
@@ -219,12 +220,12 @@ const SignupSignin = () => {
             purple={true}
           />
           <p className="or-name">or</p>
-          <Button
+          {/* <Button
             text={loading ? "Loading..." : "Sign up with Google"}
             purple={false}
             icon={<FcGoogle className="FcGoogle" />}
             onClick={googleAuth}
-          ></Button>
+          ></Button> */}
           <p className="have-an-account">
             Already have an account?{" "}
             <span

@@ -352,6 +352,7 @@ const Dashboard = () => {
     <div className="budget-cards-container">
     {budgets.map((budget) => (
   <BudgetCard key={budget.id} budget={budget} deleteBudget={deleteBudget} />
+  
 ))}
 
       </div>
@@ -428,6 +429,7 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
 
 
 

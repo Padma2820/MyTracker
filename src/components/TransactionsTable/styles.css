@@ -60,12 +60,12 @@
     margin-block: .5rem;
 }
 
-button {
+/* button {
     width: 100% !important;
     outline: none;
     border: none;
     padding: 0.4rem !important;
-}
+} */
 
 .ix-button {
     min-width: 23vw;
@@ -121,3 +121,9 @@ button {
     }
   }
   
+
+.edit-button{
+    
+    margin-right: 30px;
+
+  }

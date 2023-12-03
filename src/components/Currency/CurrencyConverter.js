@@ -1,5 +1,5 @@
-
-import { useEffect, useRef, useState } from 'react';
+import React from 'react';
+import { useEffect, useState } from 'react';
 import Axios from 'axios';
 import Dropdown from 'react-dropdown';
 import { HiSwitchHorizontal } from 'react-icons/hi';
@@ -16,7 +16,7 @@ function CurrencyConverter() {
 	const [options, setOptions] = useState([]);
 	const [output, setOutput] = useState(0);
 
-	const currencyConverterRef = useRef(null);
+	
 
 	// Calling the api whenever the dependency changes
 	useEffect(() => {
@@ -79,8 +79,14 @@ function CurrencyConverter() {
 						value={to} placeholder="To" />
 				</div>
 			</div>
+			<div className="c-button-container">
+      {/* Center the Convert button */}
+      <button className='btn-convert' onClick={() => { convert() }}>
+        Convert
+      </button>
+    </div>
 			<div className="c-result">
-				<button onClick={() => { convert() }}>Convert</button>
+				{/* <button className='btn-convert' onClick={() => { convert() }}>Convert</button> */}
 				<h2 className='convert'>Converted Amount:</h2>
 				<p className='convert-amount'>{input + " " + from + " = " + output.toFixed(2) + " " + to}</p>
 

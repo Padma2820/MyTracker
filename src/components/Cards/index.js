@@ -1,17 +1,18 @@
+import React from "react";
 import AddBudget from "../Modals/AddBudget";
+// import PropTypes from 'prop-types';
 import "./styles.css";
 import { Button, Card, Row } from "antd";
 
-const Cards = ({
+const Cards = ({ 
   showExpenseModal,
-  showIncomeModal,
-  showBudgetModal,
-  income,
-  expense,
-  currentBalance,
-}) => {
+   showIncomeModal, 
+   showBudgetModal, 
+   income,
+   expense,
+  currentBalance }) => {
 
-  const savings = income - expense;
+  // const savings = income - expense;
 
   return (
     <div>
