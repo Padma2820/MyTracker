@@ -166,7 +166,7 @@ const TransactionsTable = ({
           value={sortKey}
         >
           <Radio.Button value="">No Sort</Radio.Button>
-          <Radio.Button value="date">Sort by Date</Radio.Button>
+          {/* <Radio.Button value="date">Sort by Date</Radio.Button> */}
           <Radio.Button value="amount">Sort by Amount</Radio.Button>
         </Radio.Group>
         <div className="ix-button">
