@@ -77,7 +77,7 @@ const columns = [
     render: (text, record) => (
       <div>
         <button className="edit-button" onClick={() => handleEdit(record)}>Edit</button>
-        <button className="edit-button" onClick={() => handleDeleteSave(record)}>Delete</button>
+        <button className="delete-button" onClick={() => handleDeleteSave(record)}>Delete</button>
       </div>
     ),
   },

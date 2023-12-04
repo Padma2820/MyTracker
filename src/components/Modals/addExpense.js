@@ -1,12 +1,15 @@
 import React from "react";
-import { Button, Modal, Form, Input, DatePicker, Select } from "antd";
+import { Button, Modal, Form, Input, DatePicker, Select, InputNumber } from "antd";
 
+
+// import { Option } from 'antd/es/mentions';
 const { Option } = Select;
 
 const AddExpense = ({
   isExpenseModalVisible,
   handleExpenseCancel,
   onFinish,
+  budgets,
   selectedBudget,
 }) => {
   const [form] = Form.useForm();
@@ -63,6 +66,7 @@ const AddExpense = ({
           <DatePicker className="custom-input" format="DD-MM-YYYY" />
         </Form.Item>
 
+
      
 
         <Form.Item>
@@ -72,17 +76,16 @@ const AddExpense = ({
         </Form.Item>
       </Form>
     </Modal>
+
+
+
+
+
+    
   );
 };
 
 export default AddExpense;
-
-
-
-
-
-
-
 
 
 

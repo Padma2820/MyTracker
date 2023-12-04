@@ -127,3 +127,8 @@
     margin-right: 30px;
 
   }
+
+  .delete-button{
+
+    background-color: red;
+  }

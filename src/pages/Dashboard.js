@@ -17,6 +17,8 @@ import '../pages/Dashboard.css';
 import {updateDoc} from 'firebase/firestore';
 import { Button, Popconfirm, message } from 'antd';
 import CurrencyConverter from "../components/Currency/CurrencyConverter";
+import BudgetSummaryTable from "../components/BudgetSummaryTable";
+import BudgetsTable from "../components/BudgetsTable";
 
 
 
@@ -77,10 +79,9 @@ const Dashboard = () => {
 
 
   const handleExpenseCancel = () => {
-    setSelectedBudget(null); // Clear the selected budget when the modal is canceled
+    // Clear any state or do cleanup if needed
     setIsExpenseModalVisible(false);
   };
-
 
   const handleIncomeCancel = () => {
     setIsIncomeModalVisible(false);
@@ -350,10 +351,12 @@ const Dashboard = () => {
       />
 
     <div className="budget-cards-container">
-    {budgets.map((budget) => (
+    {/* {budgets.map((budget) => (
   <BudgetCard key={budget.id} budget={budget} deleteBudget={deleteBudget} />
   
-))}
+))} */}
+
+<BudgetsTable budgets={budgets} transactions={transactions} deleteBudget={deleteBudget} />
 
       </div>
 
@@ -384,6 +387,7 @@ const Dashboard = () => {
         isExpenseModalVisible={isExpenseModalVisible}
         handleExpenseCancel={handleExpenseCancel}
         onFinish={onFinish}
+        budgets={budgets}
       />
 
 
@@ -429,7 +433,6 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
 
 
 
