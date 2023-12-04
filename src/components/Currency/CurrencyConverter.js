@@ -59,7 +59,7 @@ function CurrencyConverter() {
 				<div className="c-left">
 					<h3>Amount</h3>
 					<input type="text"
-						placeholder="Enter the amount"
+						placeholder="Enter amount"
 						onChange={(e) => setInput(e.target.value)} />
 				</div>
 				<div className="c-middle">

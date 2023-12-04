@@ -247,16 +247,26 @@ const Dashboard = () => {
 
   
 
-  const deleteBudget = async (budgetId) => {
-    try {
-      await deleteDoc(doc(db, `users/${user.uid}/budgets/${budgetId}`));
-      setBudgets(budgets.filter((budget) => budget.id !== budgetId));
-      message.success('Budget deleted successfully');
-    } catch (error) {
-      console.error('Error deleting budget:', error);
-      message.error('Failed to delete budget');
-    }
-  };
+// ...
+
+const deleteBudget = async (budgetId) => {
+  try {
+    // Delete the budget in Firestore
+    await deleteDoc(doc(db, `users/${user.uid}/budgets/${budgetId}`));
+
+    // Update the state by filtering out the deleted budget
+    setBudgets((prevBudgets) =>
+      prevBudgets.filter((budget) => budget.id !== budgetId)
+    );
+
+    message.success('Budget deleted successfully');
+  } catch (error) {
+    console.error('Error deleting budget:', error);
+    message.error('Failed to delete budget');
+  }
+};
+
+// ...
 
  
   
