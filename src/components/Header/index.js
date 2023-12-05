@@ -27,7 +27,7 @@ const Header = () => {
    <div className="navbar">
       <h1>
         <TbMoneybag className="logo-image" />
-        Expense Tracker
+        CoinControl
       </h1>
       <div className="button-container">
        

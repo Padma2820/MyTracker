@@ -70,7 +70,7 @@ const UserProfile = () => {
           </>
         )}
       </div>
-      {/* <ColorSwitcher handleColorChange={handleColorChange} /> */}
+     
     </div>
   );
 };
